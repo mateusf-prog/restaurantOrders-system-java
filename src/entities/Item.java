@@ -35,7 +35,6 @@ public class Item {
         return stock;
     }
 
-
     public void addStock(Integer quantity) {
         this.stock += quantity;
     }

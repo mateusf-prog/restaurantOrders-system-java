@@ -8,11 +8,10 @@ public class Order {
 
     private String clientName;
     private LocalDateTime orderTime;
-    private List<Item> orderItems;
+    private List<Item> orderItems = new ArrayList<Item>();
 
-    public Order(String clientName, List<Item> orderItems) {
+    public Order(String clientName) {
         this.clientName = clientName;
-        this.orderItems = new ArrayList<Item>();
         this.orderTime = LocalDateTime.now();
     }
 

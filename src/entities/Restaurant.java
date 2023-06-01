@@ -12,8 +12,14 @@ public class Restaurant {
     private String phoneNumber;
     private static List<Item> menu = new ArrayList<Item>();
     private static List<Order> orders = new ArrayList<Order>();
-    private OrderStatus status;
+    private static OrderStatus status;
     private static List<OrderLogs> orderLogs = new ArrayList<OrderLogs>();
+    
+    public Restaurant(String name, String adress, String phoneNumber) {
+        this.name = name;
+        this.adress = adress;
+        this.phoneNumber = phoneNumber;
+    }
 
     public String getName() {
         return this.name;
@@ -39,8 +45,12 @@ public class Restaurant {
         this.phoneNumber = phoneNumber;
     }
 
-    public List<Item> getMenu() {
-        return this.menu;
+    public String getMenu() {
+        StringBuilder stb = new StringBuilder();
+        for (Item item : menu) {
+            stb.append(item.toString()).append("\n");
+        }
+        return stb.toString();
     }
 
     public void setMenu(List<Item> menu) {
@@ -63,11 +73,11 @@ public class Restaurant {
         return this.orderLogs;
     }
 
-    public static void addItemMenu(Item item) {
+    public void addItemMenu(Item item) {
         menu.add(item);
     }
 
-    public static void removeItemMenu(Item item) {
+    public void removeItemMenu(Item item) {
         menu.remove(item);
     }
 
@@ -79,7 +89,7 @@ public class Restaurant {
         return stb.toString();
     }
 
-    public static String addOrder(Order order) {
+    public String addOrder(Order order) {
         orders.add(order);
         return "Order added!";
     }
