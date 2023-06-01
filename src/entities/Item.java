@@ -43,4 +43,9 @@ public class Item {
     public void removeStock(Integer quantity) {
         this.stock -= quantity;
     }
+
+    public String toString() {
+        return "-- " + getName() + " -- " 
+            + "\nPrice: U$" + String.format("%.2f", getPrice());
+    }
 }
