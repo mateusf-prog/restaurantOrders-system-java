@@ -10,10 +10,10 @@ public class Restaurant {
     private String name;
     private String adress;
     private String phoneNumber;
-    private static List<Item> menu = new ArrayList<Item>();
-    private static List<Order> orders = new ArrayList<Order>();
-    private static OrderStatus status;
-    private static List<OrderLogs> orderLogs = new ArrayList<OrderLogs>();
+    private List<Item> menu = new ArrayList<Item>();
+    private List<Order> orders = new ArrayList<Order>();
+    private OrderStatus status;
+    private List<OrderLogs> orderLogs = new ArrayList<OrderLogs>();
     
     public Restaurant(String name, String adress, String phoneNumber) {
         this.name = name;
@@ -57,8 +57,12 @@ public class Restaurant {
         this.menu = menu;
     }
 
-    public List<Order> getOrders() {
-        return this.orders;
+    public String getOrders() {
+        StringBuilder stb = new StringBuilder();
+        for (Order order : orders) {
+            stb.append(order.showOrder()).append("\n\n");
+        }
+        return stb.toString();
     }
 
     public OrderStatus getStatus() {
@@ -94,7 +98,7 @@ public class Restaurant {
         return "Order added!";
     }
 
-    public static String removeOrder(Order order) {
+    public String removeOrder(Order order) {
         orders.remove(order);
         return "Order removed!";
     }

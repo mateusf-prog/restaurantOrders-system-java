@@ -3,16 +3,21 @@ package entities;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 public class Order {
 
+    private Integer id;
     private String clientName;
     private LocalDateTime orderTime;
     private List<Item> orderItems = new ArrayList<Item>();
 
+    private Random random = new Random();
+
     public Order(String clientName) {
         this.clientName = clientName;
         this.orderTime = LocalDateTime.now();
+        this.id = random.nextInt(9999);
     }
 
     public String getClientName() {
@@ -52,7 +57,8 @@ public class Order {
     }
 
     public String showOrder() {
-        return "CLient name: " +  clientName 
+        return "ORDER ID: " + id
+                + "\nCLient name: " +  clientName 
                 + "\nOrder time: " + orderTime
                 + "\nItems: " + getOrderItems()
                 + "\nOrder value: U$" + String.format("%.2f", orderValue());
