@@ -36,6 +36,8 @@ public class Program {
         newOrder2.addItem(item1);      
         newOrder2.addItem(item2);
 
+        restaurant1.setStatus(null);
+
         restaurant1.addOrder(newOrder1);
         restaurant1.addOrder(newOrder2);
         
@@ -49,5 +51,4 @@ public class Program {
 
         sc.close();
     }
-    
 }
